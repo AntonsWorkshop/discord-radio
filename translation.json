@@ -7,7 +7,8 @@
     "connecting": "A player is connecting to the radio!",
     "player": "Player:",
     "trying-to-connect": "Is trying to connect to radio channel:",
-    "you-were-moved": "^1You were succesfully moved!",
+    "you-were-moved": "You were succesfully moved!",
     "succes-moved": "was succesfully moved to radio:",
-    "succes-moved-title": "A player was succesfully moved!"
+    "succes-moved-title": "A player was succesfully moved!",
+    "not-connected": "You are not connected to a voice channel!"
 }
