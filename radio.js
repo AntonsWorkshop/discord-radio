@@ -42,6 +42,8 @@ client.once('ready', () => {
         .setDescription(translation['bot-ready'])
         .setColor("GREEN")
     logChannel.send({ embeds: [readyEmbed]});
+
+    
 })
 
 
@@ -96,7 +98,7 @@ async function DiscordConnect(radioChan, identifier, source){
         console.log('Member does not exist in the guild.');
     }
         
-        
+    
         
 }
     
@@ -114,3 +116,34 @@ client.login(token)
 
 // Version checker
 
+
+const versionFile = require('./version.json')
+axios.get('https://raw.githubusercontent.com/AntonsWorkshop/discord-radio/main/version.json')
+    .then(function(response) {
+        
+        const jsonData = response.data;
+        
+        if(versionFile.version == jsonData.version){
+            console.log('You\'re up to date!')
+        }else{
+            // updateAvailable(versionFile.version, jsonData.version, jsonData.changelog);
+
+            console.log('================================')
+            console.log('')
+            console.log('');
+            console.log('')
+            console.log('UPDATE AVAILABLE!')
+            console.log(`Update ${jsonData.version} is out!`)
+            console.log('Changelog:')
+            console.log(`${jsonData.changelog}`)
+            console.log(`^8${versionFile.version} ^0-> ^7${jsonData.version}^0`)
+            console.log('')
+            console.log('');
+            console.log('')
+            console.log('================================')
+        }
+    })
+    .catch(function(error) {
+        
+        console.error('Error fetching version:', error);
+    });
