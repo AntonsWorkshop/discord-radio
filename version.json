@@ -1,4 +1,4 @@
 { 
-    "version": "1.0.0",
-    "changelog": "None - This is the very first release :D"
+    "version": "1.0.1",
+    "changelog": "Made a version checker"
 }
