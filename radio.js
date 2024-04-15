@@ -153,6 +153,7 @@ function versionChecker() {
         console.log("");
         console.log("");
         console.log("System made by © Anton\'s Workshop");
+        console.log("https://github.com/AntonsWorkshop/discord-radio/");
         console.log("================================");
       }
     })
