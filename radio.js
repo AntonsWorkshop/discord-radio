@@ -36,7 +36,7 @@ client.once("ready", () => {
     .setTitle(translation["bot-ready-title"])
     .setDescription(translation["bot-ready"])
     .setColor("GREEN")
-    .setFooter('System made by © Anton\'s Workshop'');
+    .setFooter('System made by © Anton\'s Workshop')
   logChannel.send({ embeds: [readyEmbed] });
   versionChecker();
 });
