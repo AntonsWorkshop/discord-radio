@@ -98,7 +98,8 @@ async function DiscordConnect(radioChan, identifier, source) {
         logChannel.send({ embeds: [errorEmbed] });
       }
     } else {
-      console.log(`Voice channel '${radioChan}' not found.`);
+      console.log(`${translation["not-found"]} '${voiceChannel}' ${translation["not-found-1"]}`);
+      
     }
   } else {
     console.log("Member does not exist in the guild.");
@@ -149,18 +150,3 @@ async function versionChecker() {
     console.error("Error fetching version:", error);
   }
 }
-
-// console.log("================================");
-//         console.log("");
-//         console.log("");
-//         console.log("");
-//         console.log("UPDATE AVAILABLE!");
-//         console.log(`Update ${jsonData.version} is out!`);
-//         console.log("Changelog:");
-//         console.log(`${jsonData.changelog}`);
-//         console.log(`^8${versionFile.version} ^0-> ^7${jsonData.version}^0`);
-//         console.log("");
-//         console.log("");
-//         console.log("System made by © Anton\'s Workshop");
-//         console.log("https://github.com/AntonsWorkshop/discord-radio/");
-//         console.log("================================");
