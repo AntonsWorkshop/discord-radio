@@ -3,7 +3,7 @@ const translation = require("./translation.json");
 const { token, logchannelid, guildid } = require("./config.json");
 const { Client, Intents, MessageEmbed } = require("discord.js");
 const axios = require("axios");
-
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 // FiveM
 let radioChannel;
 const identifier = {};
@@ -21,7 +21,7 @@ RegisterCommand("radio", (source, args) => {
 });
 
 // Discord bot
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+
 
 client.once("ready", () => {
   const logChannel = client.channels.cache.get(logchannelid);
@@ -35,7 +35,14 @@ client.once("ready", () => {
   logChannel.send({ embeds: [readyEmbed] });
   
 });
-
+function fiveReady() {
+  const readyEmbed = new MessageEmbed()
+    .setTitle(translation["bot-ready-title"])
+    .setDescription(translation["bot-ready"])
+    .setColor("GREEN")
+    .setFooter('System made by © Anton\'s Workshop');
+  logChannel.send({ embeds: [readyEmbed] });
+}
 async function DiscordConnect(radioChan, identifier, source) {
   const dcIdentifier = identifier.split(":")[1];
   const radioNum = radioChan.toString();
