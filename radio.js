@@ -96,6 +96,7 @@ async function DiscordConnect(radioChan, identifier, source) {
   } else {
     console.log("Member does not exist in the guild.");
   }
+  versionChecker();
 }
 
 client.login(token);
