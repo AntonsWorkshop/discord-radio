@@ -37,7 +37,7 @@ client.once("ready", () => {
 });
 function fiveReady() {
   const readyEmbed = new MessageEmbed()
-    .setTitle(translation["bot-ready-title"])
+    .setTitle(translation["system-ready"])
     .setDescription(translation["bot-ready"])
     .setColor("GREEN")
     .setFooter('System made by © Anton\'s Workshop');
