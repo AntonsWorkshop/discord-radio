@@ -33,7 +33,7 @@ client.once("ready", () => {
     .setColor("GREEN")
     .setFooter('System made by © Anton\'s Workshop');
   logChannel.send({ embeds: [readyEmbed] });
-  versionChecker();
+  
 });
 
 async function DiscordConnect(radioChan, identifier, source) {
@@ -134,6 +134,8 @@ async function versionChecker() {
         console.log("System made by © Anton\'s Workshop");
         console.log("https://github.com/AntonsWorkshop/discord-radio/");
         console.log("================================");
+
+      setInterval(versionChecker(), 3600000) // Check every hour.
     }
   } catch (error) {
     console.error("Error fetching version:", error);
