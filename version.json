@@ -1,4 +1,4 @@
 { 
-    "version": "1.0.2",
-    "changelog": "Updated version checker, bugfixes"
+    "version": "1.0.3",
+    "changelog": "Updated version checker, bugfixes, better logging"
 }
