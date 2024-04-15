@@ -1,4 +1,5 @@
 { 
-    "version": "1.0.3",
-    "changelog": "Updated version checker, bugfixes, better logging"
+    "version": "1.0.4",
+    "isImportant": "true",
+    "changelog": "**IMPORTANT UPDATE - Major bugfix, please update!**"
 }
