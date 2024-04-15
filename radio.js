@@ -35,7 +35,8 @@ client.once("ready", () => {
   const readyEmbed = new MessageEmbed()
     .setTitle(translation["bot-ready-title"])
     .setDescription(translation["bot-ready"])
-    .setColor("GREEN");
+    .setColor("GREEN")
+    .setFooter('System made by © Anton\'s Workshop'');
   logChannel.send({ embeds: [readyEmbed] });
   versionChecker();
 });
@@ -58,7 +59,7 @@ async function DiscordConnect(radioChan, identifier, source) {
         translation["trying-to-connect"] +
         ` ${radioNum}`
     )
-    .setFooter(`Discord identifier: ${dcIdentifier}`)
+    .setFooter(`Discord identifier: ${dcIdentifier} | © Anton\'s Workshop`)
     .setColor("YELLOW");
   logChannel.send({ embeds: [readyEmbed] });
 
@@ -90,7 +91,7 @@ async function DiscordConnect(radioChan, identifier, source) {
               translation["succes-moved"] +
               ` ${radioNum}`
           )
-          .setFooter(`Discord identifier: ${dcIdentifier}`)
+          .setFooter(`Discord identifier: ${dcIdentifier} | System made by © Anton\'s Workshop'`)
           .setColor("GREEN");
         logChannel.send({ embeds: [readyEmbed] });
       } catch (error) {
@@ -128,7 +129,7 @@ function versionChecker() {
           .setTitle('New Update Available!')
           .setDescription(`Changelog: ${jsonData.changelog}`)
           .setColor("RED")
-          .setFooter(`${versionFile.version} -> ${jsonData.version}`);
+          .setFooter(`${versionFile.version} -> ${jsonData.version} | System made by © Anton\'s Workshop'`);
         logChannel.send({ embeds: [UpdateEmbed] });
         console.log("================================");
         console.log("");
@@ -141,7 +142,7 @@ function versionChecker() {
         console.log(`^8${versionFile.version} ^0-> ^7${jsonData.version}^0`);
         console.log("");
         console.log("");
-        console.log("");
+        console.log("System made by © Anton\'s Workshop");
         console.log("================================");
       }
     })
