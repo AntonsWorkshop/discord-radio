@@ -74,7 +74,7 @@ async function DiscordConnect(radioChan, identifier, source) {
           botServer.channels.cache.find((channel) => channel.name === radioNum)
         );
         console.log(
-          `Moved user ${member.user.tag} to channel ${voiceChannel.name}`
+          `Moved user ${member.user.tag} to channel ${voiceChannel.name} | Identifier: ${dcIdentifier}`
         );
 
         emitNet("chat:addMessage", source, {
