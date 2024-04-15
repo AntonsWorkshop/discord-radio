@@ -6,9 +6,11 @@
     "only-numbers": "^1Only numbers are allowed!",
     "connecting": "A player is connecting to the radio!",
     "player": "Player:",
-    "trying-to-connect": "Is trying to connect to radio channel:",
+    "trying-to-connect": "is trying to connect to radio channel:",
     "you-were-moved": "You were succesfully moved!",
     "succes-moved": "was succesfully moved to radio:",
     "succes-moved-title": "A player was succesfully moved!",
-    "not-connected": "You are not connected to a voice channel!"
+    "not-connected": "You are not connected to a voice channel!",
+    "not-found": "Radio Channel",
+    "not-found-1": "does not exist!"
 }
