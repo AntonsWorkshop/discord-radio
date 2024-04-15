@@ -96,6 +96,16 @@ async function DiscordConnect(radioChan, identifier, source) {
         logChannel.send({ embeds: [readyEmbed] });
       } catch (error) {
         console.error("Error moving user:", error);
+         const logChannel = client.channels.cache.get(logchannelid);
+
+        const ErrorEmbed = new MessageEmbed()
+          .setTitle("An error occured!")
+          .setDescription(
+            error
+          )
+          .setFooter(`System made by © Anton\'s Workshop `)
+          .setColor("RED");
+        logChannel.send({ embeds: [readyEmbed] });
       }
     } else {
       console.log(`Voice channel '${radioChan}' not found.`);
