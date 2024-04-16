@@ -93,7 +93,7 @@ async function DiscordConnect(radioChan, identifier, source) {
 
         const errorEmbed = new MessageEmbed()
           .setTitle("An error occurred!")
-          .setDescription(error)
+          .setDescription(`**Error**: \n```${error}````)
           .setFooter({text: 'System made by © Anton\'s Workshop'})
           .setColor("RED");
         logChannel.send({ embeds: [errorEmbed] });
