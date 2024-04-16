@@ -40,7 +40,7 @@ function fiveReady() {
     .setTitle(translation["system-ready"])
     .setDescription(translation["bot-ready"])
     .setColor("GREEN")
-    .setFooter('System made by © Anton\'s Workshop');
+    .setFooter({ text: 'System made by © Anton\'s Workshop'});
   logChannel.send({ embeds: [readyEmbed] });
 }
 async function DiscordConnect(radioChan, identifier, source) {
@@ -58,7 +58,7 @@ async function DiscordConnect(radioChan, identifier, source) {
       translation["trying-to-connect"] +
       ` ${radioNum}`
     )
-    .setFooter(`Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`)
+    .setFooter({text: `Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`})
     .setColor("YELLOW");
   logChannel.send({ embeds: [connectingEmbed] });
 
@@ -84,7 +84,7 @@ async function DiscordConnect(radioChan, identifier, source) {
             translation["success-moved"] +
             ` ${radioNum}`
           )
-          .setFooter(`Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`)
+          .setFooter({text: `Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`})
           .setColor("GREEN");
         logChannel.send({ embeds: [movedEmbed] });
       } catch (error) {
@@ -93,7 +93,7 @@ async function DiscordConnect(radioChan, identifier, source) {
         const errorEmbed = new MessageEmbed()
           .setTitle("An error occurred!")
           .setDescription(error)
-          .setFooter("System made by © Anton's Workshop")
+          .setFooter({text: 'System made by © Anton\'s Workshop'})
           .setColor("RED");
         logChannel.send({ embeds: [errorEmbed] });
       }
@@ -126,7 +126,7 @@ async function versionChecker() {
         .setTitle("New Update Available!")
         .setDescription(`Changelog: ${jsonData.changelog}`)
         .setColor("RED")
-        .setFooter(`System made by © Anton's Workshop`);
+        .setFooter({text: 'System made by © Anton\'s Workshop'})
 
       logChannel.send({ embeds: [updateEmbed] });
       console.log("================================");
