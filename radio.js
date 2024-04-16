@@ -29,8 +29,8 @@ client.once("ready", () => {
   console.log("BOT ONLINE. Logged in as:", client.user.tag);
 
   const readyEmbed = new MessageEmbed()
-    .setTitle(translation["bot-ready-title"])
-    .setDescription(translation["bot-ready"])
+    .setTitle(`${translation["bot-ready-title"]}`)
+    .setDescription(`${translation["bot-ready"]}`)
     .setColor("GREEN")
     .setFooter({ text: 'System made by © Anton\'s Workshop'});
   logChannel.send({ embeds: [readyEmbed] });
@@ -38,8 +38,8 @@ client.once("ready", () => {
 });
 function fiveReady() {
   const readyEmbed = new MessageEmbed()
-    .setTitle(translation["system-ready"])
-    .setDescription(translation["bot-ready"])
+    .setTitle(`${translation["system-ready"]}`)
+    .setDescription(`${translation["bot-ready"]}`)
     .setColor("GREEN")
     .setFooter({ text: 'System made by © Anton\'s Workshop'});
   logChannel.send({ embeds: [readyEmbed] });
@@ -53,10 +53,10 @@ async function DiscordConnect(radioChan, identifier, source) {
 
   const connectingEmbed = new MessageEmbed()
     .setTitle(translation["connecting"])
-    .setDescription(
-      translation["player"] +
+    .setDescription(`${
+      translation["player"]}` +
       `<@${dcIdentifier}>` +
-      translation["trying-to-connect"] +
+      `${translation["trying-to-connect"]}` +
       ` ${radioNum}`
     )
     .setFooter({text: `Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`})
@@ -79,10 +79,10 @@ async function DiscordConnect(radioChan, identifier, source) {
 
         const movedEmbed = new MessageEmbed()
           .setTitle(translation["success-moved-title"])
-          .setDescription(
-            translation["player"] +
+          .setDescription(`
+            ${translation["player"]}` +
             `<@${dcIdentifier}> ` +
-            translation["success-moved"] +
+            `${translation["success-moved"]}` +
             ` ${radioNum}`
           )
           .setFooter({text: `Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`})
