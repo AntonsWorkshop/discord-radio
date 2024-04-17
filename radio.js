@@ -5,7 +5,7 @@ const { Client, Intents, MessageEmbed } = require("discord.js");
 const axios = require("axios");
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 // FiveM
-let radioChannel;
+const radioChannel;
 const identifier = {};
 
 RegisterCommand("radio", (source, args) => {
