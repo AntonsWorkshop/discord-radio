@@ -46,7 +46,7 @@ async function DiscordConnect(radioChan, identifier, source) {
     
     .setDescription(
       translation["player"] +
-        `<@${dcIdentifier}>` +
+        ` <@${dcIdentifier}> ` +
         translation["trying-to-connect"] +
         ` ${radioNum}`
     )
@@ -75,7 +75,7 @@ async function DiscordConnect(radioChan, identifier, source) {
         const movedEmbed = new MessageEmbed()
           .setTitle(`${translation["succes-moved"]}`)
           
-          .setDescription(translation["player"] + `<@${dcIdentifier}> ` + translation["succes-moved"] +` ${radioNum}`
+          .setDescription(translation["player"] + ` <@${dcIdentifier}> ` + translation["succes-moved"] +` ${radioNum}`
           )
           .setFooter({
             text: `Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`,
