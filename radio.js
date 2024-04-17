@@ -145,7 +145,7 @@ async function versionChecker() {
         console.log("https://github.com/AntonsWorkshop/discord-radio/");
         console.log("================================");
 
-      setInterval(versionChecker(), 3600000) // Check every hour.
+      setInterval(versionChecker, 3600000) // Check every hour.
     }
   } catch (error) {
     console.error("Error fetching version:", error);
