@@ -1,7 +1,6 @@
 {
-    "bot-ready-title": "Radio system is up and running! (Discord Side).",
+    "bot-ready-title": "Radio system is up and running!",
     "bot-ready": "The bot for the radio system is up and running!",
-    "system-ready": "Radio system is up and running! (FiveM Side).",
 
     "only-numbers": "^1Only numbers are allowed!",
     "connecting": "A player is connecting to the radio!",
