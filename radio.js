@@ -20,30 +20,20 @@ RegisterCommand("radio", (source, args) => {
   }
 });
 
-fiveReady()
 // Discord bot
-
 
 client.once("ready", () => {
   const logChannel = client.channels.cache.get(logchannelid);
   console.log("BOT ONLINE. Logged in as:", client.user.tag);
 
   const readyEmbed = new MessageEmbed()
-    .setTitle(`${translation["bot-ready-title"]}`)
-    .setDescription(`${translation["bot-ready"]}`)
+    .setTitle(translation["bot-ready-title"])
+    .setURL("https://discord.gg/W3ZPTYvg3g")
+    .setDescription(translation["bot-ready"])
     .setColor("GREEN")
-    .setFooter({ text: 'System made by © Anton\'s Workshop'});
+    .setFooter({ text: "System made by © Anton's Workshop" });
   logChannel.send({ embeds: [readyEmbed] });
-  
 });
-function fiveReady() {
-  const readyEmbed = new MessageEmbed()
-    .setTitle(`${translation["system-ready"]}`)
-    .setDescription(`${translation["bot-ready"]}`)
-    .setColor("GREEN")
-    .setFooter({ text: 'System made by © Anton\'s Workshop'});
-  logChannel.send({ embeds: [readyEmbed] });
-}
 async function DiscordConnect(radioChan, identifier, source) {
   const dcIdentifier = identifier.split(":")[1];
   const radioNum = radioChan.toString();
@@ -53,13 +43,16 @@ async function DiscordConnect(radioChan, identifier, source) {
 
   const connectingEmbed = new MessageEmbed()
     .setTitle(translation["connecting"])
-    .setDescription(`${
-      translation["player"]}` +
-      `<@${dcIdentifier}>` +
-      `${translation["trying-to-connect"]}` +
-      ` ${radioNum}`
+    
+    .setDescription(
+      translation["player"] +
+        `<@${dcIdentifier}>` +
+        translation["trying-to-connect"] +
+        ` ${radioNum}`
     )
-    .setFooter({text: `Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`})
+    .setFooter({
+      text: `Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`,
+    })
     .setColor("YELLOW");
   logChannel.send({ embeds: [connectingEmbed] });
 
@@ -75,32 +68,34 @@ async function DiscordConnect(radioChan, identifier, source) {
           `Moved user ${member.user.tag} to channel ${voiceChannel.name} | Identifier: ${dcIdentifier}`
         );
 
-        emitNet("chat:addMessage", source, { args: [translation["you-were-moved"]] });
+        emitNet("chat:addMessage", source, {
+          args: [translation["you-were-moved"]],
+        });
 
         const movedEmbed = new MessageEmbed()
-          .setTitle(translation["success-moved-title"])
-          .setDescription(`
-            ${translation["player"]}` +
-            `<@${dcIdentifier}> ` +
-            `${translation["success-moved"]}` +
-            ` ${radioNum}`
+          .setTitle(`${translation["succes-moved"]}`)
+          
+          .setDescription(translation["player"] + `<@${dcIdentifier}> ` + translation["succes-moved"] +` ${radioNum}`
           )
-          .setFooter({text: `Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`})
+          .setFooter({
+            text: `Discord identifier: ${dcIdentifier} | System made by © Anton's Workshop`,
+          })
           .setColor("GREEN");
         logChannel.send({ embeds: [movedEmbed] });
       } catch (error) {
-        console.error("Error moving user:", error);
-
         const errorEmbed = new MessageEmbed()
           .setTitle("An error occurred!")
-          .setDescription(`**Error**: \n```${error}````)
-          .setFooter({text: 'System made by © Anton\'s Workshop'})
+          .setURL("https://discord.gg/W3ZPTYvg3g")
+          .setDescription('Please notify Anton\'s Workshop if this keeps happening!')
+          .addFields({ name: "An error occurred!", value: `${error}` })
+          .setFooter({ text: "System made by © Anton's Workshop" })
           .setColor("RED");
         logChannel.send({ embeds: [errorEmbed] });
       }
     } else {
-      console.log(`${translation["not-found"]} '${voiceChannel}' ${translation["not-found-1"]}`);
-      
+      console.log(
+        `${translation["not-found"]} '${radioNum}' ${translation["not-found-1"]}`
+      );
     }
   } else {
     console.log("Member does not exist in the guild.");
@@ -114,7 +109,9 @@ client.login(token);
 async function versionChecker() {
   try {
     const versionFile = require("./version.json");
-    const response = await axios.get("https://raw.githubusercontent.com/AntonsWorkshop/discord-radio/main/version.json");
+    const response = await axios.get(
+      "https://raw.githubusercontent.com/AntonsWorkshop/discord-radio/main/version.json"
+    );
     const jsonData = response.data;
 
     if (versionFile.version === jsonData.version) {
@@ -125,27 +122,28 @@ async function versionChecker() {
 
       const updateEmbed = new MessageEmbed()
         .setTitle("New Update Available!")
+        .setURL("https://discord.gg/W3ZPTYvg3g")
         .setDescription(`Changelog: ${jsonData.changelog}`)
         .setColor("RED")
-        .setFooter({text: 'System made by © Anton\'s Workshop'})
+        .setFooter({ text: `System made by © Anton's Workshop` });
 
       logChannel.send({ embeds: [updateEmbed] });
       console.log("================================");
-        console.log("");
-        console.log("");
-        console.log("");
-        console.log("UPDATE AVAILABLE!");
-        console.log(`Update ${jsonData.version} is out!`);
-        console.log("Changelog:");
-        console.log(`${jsonData.changelog}`);
-        console.log(`^8${versionFile.version} ^0-> ^7${jsonData.version}^0`);
-        console.log("");
-        console.log("");
-        console.log("System made by © Anton\'s Workshop");
-        console.log("https://github.com/AntonsWorkshop/discord-radio/");
-        console.log("================================");
+      console.log("");
+      console.log("");
+      console.log("");
+      console.log("UPDATE AVAILABLE!");
+      console.log(`Update ${jsonData.version} is out!`);
+      console.log("Changelog:");
+      console.log(`${jsonData.changelog}`);
+      console.log(`^8${versionFile.version} ^0-> ^7${jsonData.version}^0`);
+      console.log("");
+      console.log("");
+      console.log("System made by © Anton's Workshop");
+      console.log("https://github.com/AntonsWorkshop/discord-radio/");
+      console.log("================================");
 
-      setInterval(versionChecker, 3600000) // Check every hour.
+      setInterval(versionChecker(), 3600000); // Check every hour.
     }
   } catch (error) {
     console.error("Error fetching version:", error);
