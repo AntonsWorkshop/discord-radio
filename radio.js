@@ -73,7 +73,7 @@ async function DiscordConnect(radioChan, identifier, source) {
         });
 
         const movedEmbed = new MessageEmbed()
-          .setTitle(`${translation["succes-moved"]}`)
+          .setTitle(`${translation["succes-moved-title"]}`)
           
           .setDescription(translation["player"] + ` <@${dcIdentifier}> ` + translation["succes-moved"] +` ${radioNum}`
           )
