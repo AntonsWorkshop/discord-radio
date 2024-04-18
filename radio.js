@@ -101,7 +101,6 @@ async function DiscordConnect(radioChan, identifier, source) {
   } else {
     console.log("Member does not exist in the guild.");
   }
-  versionChecker();
 }
 
 client.login(token);
@@ -144,7 +143,9 @@ async function versionChecker() {
       console.log("https://github.com/AntonsWorkshop/discord-radio/");
       console.log("================================");
 
-      setInterval(versionChecker(), 3600000); // Check every hour.
+      setInterval(function(){
+        versionChecker()
+      }, 1800000);
     }
   } catch (error) {
     console.error("Error fetching version:", error);
