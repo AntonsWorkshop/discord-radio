@@ -33,6 +33,7 @@ client.once("ready", () => {
     .setColor("GREEN")
     .setFooter({ text: "System made by © Anton's Workshop" });
   logChannel.send({ embeds: [readyEmbed] });
+  versionChecker();
 });
 async function DiscordConnect(radioChan, identifier, source) {
   const dcIdentifier = identifier.split(":")[1];
