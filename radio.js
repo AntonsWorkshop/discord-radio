@@ -123,7 +123,7 @@ async function versionChecker() {
       const updateEmbed = new MessageEmbed()
         .setTitle("New Update Available!")
         .setURL("https://discord.gg/W3ZPTYvg3g")
-        .setDescription(`Changelog: ${jsonData.changelog}`)
+        .setDescription(`**Changelog**\n: ${jsonData.changelog}`)
         .setColor("RED")
         .setFooter({ text: `System made by © Anton's Workshop` });
 
