@@ -1,9 +1,9 @@
 // Shared
 const translation = require("./translation.json");
-const { token, logchannelid, guildid } = require("./config.json");
-const { Client, Intents, MessageEmbed } = require("discord.js");
+const { token, logchannelid, guildid, botPrefix } = require("./config.json");
+const { Client, Intents, MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 const axios = require("axios");
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.MESSAGE_CONTENT] });
 // FiveM
 var radioChannel;
 var identifier = {};
@@ -25,7 +25,7 @@ RegisterCommand("radio", (source, args) => {
 client.once("ready", () => {
   const logChannel = client.channels.cache.get(logchannelid);
   console.log("BOT ONLINE. Logged in as:", client.user.tag);
-
+  console.log("Bot is using prefix: " + botPrefix)
   const readyEmbed = new MessageEmbed()
     .setTitle(translation["bot-ready-title"])
     .setURL("https://discord.gg/W3ZPTYvg3g")
@@ -35,6 +35,9 @@ client.once("ready", () => {
   logChannel.send({ embeds: [readyEmbed] });
   versionChecker();
 });
+
+
+
 async function DiscordConnect(radioChan, identifier, source) {
   const dcIdentifier = identifier.split(":")[1];
   const radioNum = radioChan.toString();
@@ -84,6 +87,14 @@ async function DiscordConnect(radioChan, identifier, source) {
           .setColor("GREEN");
         logChannel.send({ embeds: [movedEmbed] });
       } catch (error) {
+        const row = new MessageActionRow()
+          .addComponents(
+            new MessageButton()
+            .setLabel('Join Our Support Server!')
+            .setStyle('LINK')
+            .setURL('https://discord.gg/W3ZPTYvg3g')
+          )
+        
         const errorEmbed = new MessageEmbed()
           .setTitle("An error occurred!")
           .setURL("https://discord.gg/W3ZPTYvg3g")
@@ -91,7 +102,7 @@ async function DiscordConnect(radioChan, identifier, source) {
           .addFields({ name: "An error occurred!", value: `${error}` })
           .setFooter({ text: "System made by © Anton's Workshop" })
           .setColor("RED");
-        logChannel.send({ embeds: [errorEmbed] });
+        logChannel.send({ embeds: [errorEmbed], components: [row] });
       }
     } else {
       console.log(
@@ -102,6 +113,8 @@ async function DiscordConnect(radioChan, identifier, source) {
     console.log("Member does not exist in the guild.");
   }
 }
+
+
 
 client.login(token);
 
@@ -119,15 +132,21 @@ async function versionChecker() {
     } else {
       const logChannel = client.channels.cache.get(logchannelid);
       console.log("New Update Available!");
-
+      const row = new MessageActionRow()
+      .addComponents(
+        new MessageButton()
+        .setLabel('Join Our Support Server!')
+        .setStyle('LINK')
+        .setURL('https://discord.gg/W3ZPTYvg3g')
+      )
       const updateEmbed = new MessageEmbed()
         .setTitle("New Update Available!")
         .setURL("https://discord.gg/W3ZPTYvg3g")
-        .setDescription(`**Changelog**\n: ${jsonData.changelog}`)
+        .setDescription(`**Changelog:**\n ${jsonData.changelog}`)
         .setColor("RED")
         .setFooter({ text: `System made by © Anton's Workshop` });
 
-      logChannel.send({ embeds: [updateEmbed] });
+      logChannel.send({ embeds: [updateEmbed], components: [row] });
       console.log("================================");
       console.log("");
       console.log("");
