@@ -164,7 +164,7 @@ async function versionChecker() {
 
       setInterval(function(){
         versionChecker()
-      }, 1800000);
+      }, 7200000);
     }
   } catch (error) {
     console.error("Error fetching version:", error);
