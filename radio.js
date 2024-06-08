@@ -5,8 +5,8 @@ const { Client, Intents, MessageEmbed, MessageActionRow, MessageButton } = requi
 const axios = require("axios");
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.MESSAGE_CONTENT] });
 // FiveM
-var radioChannel;
-var identifier = {};
+let radioChannel;
+let identifier = {};
 
 RegisterCommand("radio", (source, args) => {
   const channelNumber = Number(args[0]);
