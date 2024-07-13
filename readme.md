@@ -35,7 +35,7 @@ Open `config.json`. You'll see the next content:
 
 - `botPrefix` is the prefix the commands will have. For example: `!` or `%`.
 
->> Please note that these values are REQUIRED. Not filling one out will make the bot not work, or throw error's.
+> ``📝`` Please note that these values are REQUIRED. Not filling one out will make the bot not work, or throw error's.
 
 
 
